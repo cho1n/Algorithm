@@ -1,0 +1,46 @@
+from collections import deque
+
+def solution(begin, target, words):
+    words_matrix = []
+    steps = 0
+    
+    for word in words:
+        word_list = list(word)
+        words_matrix.append(word_list)
+        
+    bfs(begin, target, words_matrix, 0)
+    for i in range(len(words)):
+            if words[i] == target:
+                return visited[i]
+    
+    return answer
+
+def bfs(begin, target, words, steps):
+    queue.append([begin, steps])
+
+    while queue:
+        global answer
+        arr = []
+        v, steps = queue.popleft()
+        steps += 1
+        
+        for i in range(len(v)):
+            arr.append(v[i])
+            
+        for k in range(len(words)):
+            count = 0
+            if k > len(words) or k < 0:
+                continue
+            for i in range(len(arr)):
+                if arr[i] == words[k][i]:
+                    count += 1
+                    
+            if count == (len(arr) - 1) and visited[k] == 0 :
+                visited[k] = steps
+                queue.append([words[k], steps])
+        
+queue = deque()
+visited = [0] * 51
+answer = 0
+
+print(solution("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]))
