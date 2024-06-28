@@ -9,7 +9,7 @@ if M>=K :
     while cnt < M:
         for i in range(K):
             result += arr[-1]
-            cnt += 1
+            cnt += 1b
             if(cnt == M):
                 break
         if(cnt == M):

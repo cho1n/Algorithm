@@ -2,7 +2,6 @@ from collections import deque
 
 def solution(begin, target, words):
     words_matrix = []
-    steps = 0
     
     for word in words:
         word_list = list(word)
@@ -15,7 +14,7 @@ def solution(begin, target, words):
     
     return answer
 
-def bfs(begin, target, words, steps):
+def bfs(begin, words, steps):
     queue.append([begin, steps])
 
     while queue:
