@@ -1,0 +1,37 @@
+answer = 0
+
+def solution(n, lost, reserve):
+    global answer
+    lost.sort()
+    reserve.sort()
+    
+    answer = find(n, lost, reserve)
+    return answer
+
+def find(n, lost, reserve) :
+    global answer
+    students = [1] * (n+1)
+    
+    for i in range(len(students)):
+        for lost_s in lost:
+            if lost_s == i+1:
+                students[i] -= 1
+        for reserve_s in reserve :
+            if reserve_s == i+1:
+                students[i] += 1
+
+    for i in range(len(students)):
+            if students[i] > 1 and students[i-1] == 0:
+                students[i] -= 1
+                students[i-1] += 1
+                
+            if i+1 < n :
+                if students[i] > 1 and students[i+1] == 0:
+                    students[i] -= 1
+                    students[i+1] += 1
+        
+    for i in range(n):
+        if students[i] >= 1:
+            answer += 1
+    
+    return answer            
