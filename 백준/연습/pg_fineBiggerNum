@@ -1,0 +1,33 @@
+def solution(number, k):
+    arr = []
+    stack = []
+    count = 0
+    num = 0
+    answer = ""
+    
+    for i in range(len(number)):
+        arr.append(int(number[i]))
+    
+    
+    while (count != k):
+        if len(stack) + k == len(arr):
+            break
+        elif (len(stack) != 0) and (stack[-1] < arr[num]) :
+            stack.pop()
+            stack.append(arr[num])
+            count += 1
+            num += 1
+            
+        else :
+            stack.append(arr[num])
+            num += 1         
+    
+    if (len(stack) + k) != len(arr):
+        for i in range(num, len(arr)):
+            stack.append(arr[i])
+            
+    for i in stack:
+        answer += str(i)
+    return answer
+            
+solution("4177252841",4)
