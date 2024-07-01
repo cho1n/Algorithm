@@ -1,7 +1,14 @@
-import collections
+def sol(A, B):
+    answer = ''
+    temp = 0
+    dic = {}
+    for a in A:
+        dic[hash(a)] = a
+        temp += int(hash(a))
+    for b in B:
+        temp -= hash(b)
+    answer = dic[temp]
+    
+    return answer
 
-def solution(participant, completion):
-    answer = collections.Counter(participant) - collections.Counter(completion)
-    return list(answer.keys())[0]
-
-print(solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]))
+print(sol(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]))
