@@ -1,12 +1,16 @@
-N = input()
-arr = list(map(int, input().split()))
-temp = 0
-ans = 0
+N = int(input())
+members = list(map(int, input().split()))
+time = 0
+times = []
+result = 0
 
-arr.sort()
+member = sorted(members)
 
-for i in range(int(N)) :
-    ans += arr[i]
-    temp += ans
+for i in range(N):
+    time += member[i]
+    times.append(time)
 
-print(temp)
+for i in range(len(times)):
+    result += times[i]
+
+print(result)
