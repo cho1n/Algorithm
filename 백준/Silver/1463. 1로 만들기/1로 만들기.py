@@ -1,13 +1,14 @@
-x = int(input())
+N = int(input())
+dp = [0] * 1000001
+dp[0] = 0
 
-dp = [0] * (x+1)
 
-for i in range(2, x+1):
-    dp[i] = dp[i-1] + 1
-    
-    if i%3 == 0:
-        dp[i] = min(dp[i], dp[i//3] + 1)
-    if i%2 == 0:
-        dp[i] = min(dp[i], dp[i//2] + 1)
+for l in range(2, N+1):
+    dp[l] = dp[l-1] + 1
 
-print(dp[x])
+    if l%3 == 0:
+        dp[l] = min(dp[l], dp[l//3] + 1)
+    if l%2 == 0:
+        dp[l] = min(dp[l], dp[l//2] + 1)
+
+print(dp[N])

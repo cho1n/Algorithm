@@ -1,7 +1,7 @@
-N = int(input())
-sequence = list(map(int, input().split()))
+n = int(input())
+arr = list(map(int, input().split()))
 
-for i in range(1, len(sequence)):
-    sequence[i] = max(sequence[i-1] + sequence[i], sequence[i])
-    
-print(max(sequence))
+for i in range(1, n):
+    arr[i] = max(arr[i-1]+arr[i], arr[i])
+
+print(max(arr))
