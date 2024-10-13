@@ -3,13 +3,13 @@ arr = list(map(int, input().split()))
 ans = []
 arr.sort()
 
-def back(start):
+def back():
     if len(ans) == M:
         print(" ".join(map(str, ans)))
         return
-    for i in range(start, len(arr)):
+    for i in range(0, len(arr)):
         ans.append(arr[i])
-        back(i)
+        back()
         ans.pop()
         
-back(0)
+back()
